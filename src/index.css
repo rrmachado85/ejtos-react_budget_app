@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+input[id='cost']::-webkit-outer-spin-button,
+input[id='cost']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
