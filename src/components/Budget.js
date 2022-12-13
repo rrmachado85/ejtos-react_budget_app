@@ -20,6 +20,7 @@ const Budget = () => {
                 id='budget'
                 value={budget}
                 step='10'
+                max='20000'
                 onChange={event=> changeBudget(event.target.value)}>
             </input>
         </div>
