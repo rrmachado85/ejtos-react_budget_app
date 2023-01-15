@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
+import {Dropdown,DropdownButton} from 'react-bootstrap';
 import { AppContext } from '../context/AppContext';
+
 
 const Currency = () => {
 
     const { currency,dispatch } = useContext(AppContext);
 
-    let optionsState;
+    var optionsState=currency;
 
     const changeCurrency = (currency) => {
 
@@ -15,33 +17,38 @@ const Currency = () => {
         });
     };
 
-    switch ({currency}) {
+    switch (currency) {
         case '$':
-            optionsState="$ Dollar";
+            optionsState="Currency ($ Dollar)";
           break;
         case '£':
-            optionsState="£ Pound";
+            optionsState="Currency (£ Pound)";
           break;
         case '€':
-            optionsState="€ Euro";
+            optionsState="Currency (€ Euro)";
           break;
         case '₹':
-            optionsState="₹ Ruppee";
+            optionsState="Currency (₹ Ruppee)";
           break;
         default:
       }
 
     return (
-        <div className='alert alert-primary' border-radius='10px'>
-            <span>Currency {optionsState}</span>
-                  <select className="custom-select" id="inputGroupSelect01" onChange={(event) => changeCurrency(event.target.value)}>
-                    <option value="$" name="$">$ Dollar</option>
-                    <option value="£" name="£">£ Pound</option>
-                    <option value="€" name="€">€ Euro</option>
-                    <option value="₹" name="₹">₹ Ruppee</option>
-                  </select>
-            
+        <div className='alert alert-secondary'>
+   <DropdownButton
+      alignRight
+      title={optionsState}
+      id="drop"
+      onSelect={changeCurrency}
+      
+      >
+              <Dropdown.Item eventKey="$">$ Dollar</Dropdown.Item>
+              <Dropdown.Item eventKey="£">£ Pound</Dropdown.Item>
+              <Dropdown.Item eventKey="€">€ Euro</Dropdown.Item>
+              <Dropdown.Item eventKey="₹">₹ Ruppee</Dropdown.Item>
+      </DropdownButton>
         </div>
+
     );
 };
 
