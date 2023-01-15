@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import {Dropdown,DropdownButton} from 'react-bootstrap';
+import {Dropdown} from 'react-bootstrap';
 import { AppContext } from '../context/AppContext';
 
 
@@ -35,20 +35,23 @@ const Currency = () => {
 
     return (
         <div className='alert alert-secondary'>
-   <DropdownButton
-      alignRight
-      title={optionsState}
-      id="drop"
-      onSelect={changeCurrency}
-      
-      >
-              <Dropdown.Item eventKey="$">$ Dollar</Dropdown.Item>
-              <Dropdown.Item eventKey="£">£ Pound</Dropdown.Item>
-              <Dropdown.Item eventKey="€">€ Euro</Dropdown.Item>
-              <Dropdown.Item eventKey="₹">₹ Ruppee</Dropdown.Item>
-      </DropdownButton>
+        
+        <Dropdown
+        onSelect={changeCurrency}
+        >
+        <Dropdown.Toggle id="drop">
+          {optionsState}
+        </Dropdown.Toggle>
+        <Dropdown.Menu id="dropmenu">
+            <Dropdown.Item id="ditem" eventKey="$">$ Dollar</Dropdown.Item>
+            <Dropdown.Item id="ditem" eventKey="£">£ Pound</Dropdown.Item>
+            <Dropdown.Item id="ditem" eventKey="€">€ Euro</Dropdown.Item>
+            <Dropdown.Item id="ditem" eventKey="₹">₹ Ruppee</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+    
         </div>
-
+      
     );
 };
 
