@@ -5,6 +5,8 @@ const Currency = () => {
 
     const { currency,dispatch } = useContext(AppContext);
 
+    let optionsState;
+
     const changeCurrency = (currency) => {
 
         dispatch({
@@ -13,11 +15,26 @@ const Currency = () => {
         });
     };
 
+    switch ({currency}) {
+        case '$':
+            optionsState="$ Dollar";
+          break;
+        case '£':
+            optionsState="£ Pound";
+          break;
+        case '€':
+            optionsState="€ Euro";
+          break;
+        case '₹':
+            optionsState="₹ Ruppee";
+          break;
+        default:
+      }
+
     return (
         <div className='alert alert-primary'>
-            <span>Currency £{currency}</span>
+            <span>Currency {optionsState}</span>
                   <select className="custom-select" id="inputGroupSelect01" onChange={(event) => changeCurrency(event.target.value)}>
-                        <option defaultValue>Choose...</option>
                     <option value="$" name="$">$ Dollar</option>
                     <option value="£" name="£">£ Pound</option>
                     <option value="€" name="€">€ Euro</option>

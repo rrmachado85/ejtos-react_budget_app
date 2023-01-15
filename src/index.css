@@ -17,3 +17,34 @@ input[id='cost']::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+button[id='add'] {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50px; /* may require vendor prefixes */
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0;
+    border: 0px;
+    font-size: 35px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #04AA6D; /* Green */
+  }
+
+  button[id='dec'] {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50px; /* may require vendor prefixes */
+    margin: 0 auto;
+    text-align: center;
+    padding: 0;
+    border: 0px;
+    font-size: 35px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #d80808; /* red */
+  }
